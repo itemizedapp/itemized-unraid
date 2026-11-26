@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommunityApplications>
+  <Profile>
+    Official Unraid Community Applications template repository for **Itemized** — self-hosted household inventory management, expiration tracking, barcode scanning, and direct Zebra ZPL label printing.
+
+    For bug reports, feature requests, and support, please open an issue on [GitHub](https://github.com/itemizedapp/itemized/issues).
+  </Profile>
+  <Icon>https://raw.githubusercontent.com/itemizedapp/itemized/main/web/public/icon-512.png</Icon>
+  <WebPage>https://itemizedapp.com</WebPage>
+</CommunityApplications>

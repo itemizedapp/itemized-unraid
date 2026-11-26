@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Container version="2">
+  <Name>itemized</Name>
+  <Repository>ghcr.io/itemizedapp/itemized:latest</Repository>
+  <Registry>https://ghcr.io/itemizedapp/itemized</Registry>
+  <Network>bridge</Network>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/itemizedapp/itemized/issues</Support>
+  <Project>https://github.com/itemizedapp/itemized</Project>
+  <ReadMe>https://raw.githubusercontent.com/itemizedapp/itemized/main/README.md</ReadMe>
+  <Overview>Self-hosted household inventory management, expiration tracking, automatic shopping lists, mobile and USB barcode/QR scanning, and direct LAN Zebra ZPL label printing (IPP and Raw TCP 9100). Ships as a lightweight Go binary with an embedded web UI and single SQLite database, with OpenFoodFacts UPC lookup, optional LLM classification (Anthropic, OpenAI, Gemini, Ollama), and optional OIDC SSO.</Overview>
+  <Category>HomeAutomation: Productivity:</Category>
+  <ExtraSearchTerms>inventory pantry fridge freezer grocery shopping barcode qr zebra zpl label expiration grocy</ExtraSearchTerms>
+  <WebUI>http://[IP]:[PORT:8080]/</WebUI>
+  <TemplateURL>https://raw.githubusercontent.com/itemizedapp/itemized-unraid/main/templates/itemized.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/itemizedapp/itemized/main/web/public/icon-512.png</Icon>
+  <Screenshot>https://raw.githubusercontent.com/itemizedapp/itemized/main/docs/screenshot-inventory.jpg</Screenshot>
+  <Requires>Serve over HTTPS behind a reverse proxy (with TRUST_PROXY=true and BASE_URL set) to enable live mobile camera barcode scanning.</Requires>
+  <Config Name="Web UI Port" Target="8080" Default="8080" Mode="tcp" Description="HTTP port for the Itemized Web UI and API." Type="Port" Display="always" Required="true" Mask="false">8080</Config>
+  <Config Name="Data Directory" Target="/data" Default="/mnt/user/appdata/itemized" Mode="rw" Description="Persistent storage for the SQLite database (itemized.db)." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/itemized</Config>
+  <Config Name="Base URL" Target="BASE_URL" Default="" Mode="" Description="Public URL encoded into printed QR labels (e.g. https://itemized.example.com)." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Timezone" Target="TZ" Default="America/New_York" Mode="" Description="Container timezone (e.g. America/New_York)." Type="Variable" Display="always" Required="false" Mask="false">America/New_York</Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="User ID for running Itemized and owning /data files (99 = nobody on Unraid)." Type="Variable" Display="advanced" Required="false" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Group ID for running Itemized and owning /data files (100 = users on Unraid)." Type="Variable" Display="advanced" Required="false" Mask="false">100</Config>
+  <Config Name="Trust Proxy Headers" Target="TRUST_PROXY" Default="false" Mode="" Description="Set to true when behind a reverse proxy so rate limiting reads X-Forwarded-For / X-Real-IP." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="OIDC Issuer" Target="OIDC_ISSUER" Default="" Mode="" Description="Optional OIDC provider issuer URL (Auth Code + PKCE)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="OIDC Client ID" Target="OIDC_CLIENT_ID" Default="" Mode="" Description="Optional OIDC client ID." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="OIDC Client Secret" Target="OIDC_CLIENT_SECRET" Default="" Mode="" Description="Optional OIDC client secret." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="OIDC Auto-Provision" Target="OIDC_AUTO_PROVISION" Default="false" Mode="" Description="Set to true to auto-create household member accounts on first OIDC login." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="OIDC Force Login" Target="OIDC_FORCE" Default="false" Mode="" Description="Set to true to require OIDC sign-in (redirects login page to IdP and disables local password login)." Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="LLM Provider" Target="LLM_PROVIDER" Default="" Mode="" Description="Optional LLM provider for UPC normalization: anthropic, openai, gemini, or openai-compatible (e.g. Ollama)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="LLM Model" Target="LLM_MODEL" Default="" Mode="" Description="Optional LLM model identifier." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="LLM Base URL" Target="LLM_BASE_URL" Default="" Mode="" Description="Optional custom LLM API base URL (e.g. http://ollama:11434/v1)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="LLM API Key" Target="LLM_API_KEY" Default="" Mode="" Description="Optional API key for the configured LLM provider." Type="Variable" Display="advanced" Required="false" Mask="true"/>
+</Container>
