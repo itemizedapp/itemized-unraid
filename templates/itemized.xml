@@ -7,8 +7,8 @@
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://github.com/itemizedapp/itemized/issues</Support>
-  <Project>https://github.com/itemizedapp/itemized</Project>
-  <ReadMe>https://raw.githubusercontent.com/itemizedapp/itemized/main/README.md</ReadMe>
+  <Project>https://itemizedapp.com</Project>
+  <ReadMe>https://itemizedapp.com/docs/</ReadMe>
   <Overview>Self-hosted household inventory management, expiration tracking, automatic shopping lists, mobile and USB barcode/QR scanning, and direct LAN Zebra ZPL label printing (IPP and Raw TCP 9100). Ships as a lightweight Go binary with an embedded web UI and single SQLite database, with OpenFoodFacts UPC lookup, optional LLM classification (Anthropic, OpenAI, Gemini, Ollama), and optional OIDC SSO.</Overview>
   <Category>HomeAutomation: Productivity:</Category>
   <ExtraSearchTerms>inventory pantry fridge freezer grocery shopping barcode qr zebra zpl label expiration grocy</ExtraSearchTerms>
